@@ -1,0 +1,18 @@
+{
+  "class": "org.openqa.grid.common.RegistrationRequest",
+  "capabilities": [
+    {
+      "seleniumProtocol": "WebDriver",
+      "browserName": "firefox",
+      "version": "36",
+      "maxInstances": 1,
+      "platform" : "MAC"
+    }
+  ],
+  "configuration": {
+    "port": 6666,
+    "register": true,
+    "hubHost": "localhost",
+    "role": "webdriver"
+  }
+}

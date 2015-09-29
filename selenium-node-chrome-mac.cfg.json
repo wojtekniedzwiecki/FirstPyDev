@@ -1,0 +1,18 @@
+{
+  "class": "org.openqa.grid.common.RegistrationRequest",
+  "capabilities": [
+    {
+      "seleniumProtocol": "WebDriver",
+      "browserName": "chrome",
+      "version": "45",
+      "maxInstances": 1,
+      "platform" : "MAC"
+    }
+  ],
+  "configuration": {
+    "port": 5555,
+    "register": true,
+    "hubHost": "localhost",
+    "role": "webdriver"
+  }
+}

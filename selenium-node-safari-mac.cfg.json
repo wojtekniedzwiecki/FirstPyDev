@@ -1,0 +1,18 @@
+{
+  "class": "org.openqa.grid.common.RegistrationRequest",
+  "capabilities": [
+    {
+      "seleniumProtocol": "WebDriver",
+      "browserName": "safari",
+      "version": "7",
+      "maxInstances": 1,
+      "platform" : "MAC"
+    }
+  ],
+  "configuration": {
+    "port": 7777,
+    "register": true,
+    "hubHost": "localhost",
+    "role": "webdriver"
+  }
+}
