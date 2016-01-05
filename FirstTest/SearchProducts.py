@@ -1,23 +1,23 @@
-__author__ = 'wojtekniedzwiecki'
-
-
+import sys
 import unittest
 from selenium import webdriver
 
-
 class SearchProducts(unittest.TestCase):
+
+    PLATFORM = 'WINDOWS'
+    BROWSER = 'firefox'
+
     def setUp(self):
 
         desired_caps = {}
-        desired_caps['platform'] = 'WINDOWS'
-        desired_caps['browserName'] = 'firefox'
+        desired_caps['platform'] = self.PLATFORM
+        desired_caps['browserName'] = self.BROWSER
 
         self.driver = \
             webdriver.Remote('http://192.168.0.12:4444/wd/hub',desired_caps)
         self.driver.get('http://demo.magentocommerce.com/')
         self.driver.implicitly_wait(30)
         self.driver.maximize_window()
-
     def testSearchByCategory(self):
 
         # get the search textbox
@@ -29,8 +29,8 @@ class SearchProducts(unittest.TestCase):
         self.search_field.submit()
 
         # get all the anchor elements which have product names # displayed currently on result page using # find_elements_by_xpath method
-        products = self.driver \
-            .find_elements_by_xpath('//h2[@class=\'product-name\']/a')
+        products = self.driver. \
+            find_elements_by_xpath('//h2[@class=\'product-name\']/a')
 
         # check count of products shown in results
         self.assertEqual(2, len(products))
@@ -40,4 +40,7 @@ class SearchProducts(unittest.TestCase):
         self.driver.quit()
 
 if __name__ == '__main__':
-    unittest.main()
+    if len(sys.argv) > 1:
+        SearchProducts.BROWSER = sys.argv.pop()
+        SearchProducts.PLATFORM = sys.argv.pop()
+    unittest.main(verbosity=2)
