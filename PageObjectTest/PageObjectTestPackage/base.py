@@ -16,6 +16,12 @@ class BasePage(object):
         from search import SearchRegion
         return SearchRegion(self.driver)
 
+    @property
+    def basket(self):
+        from basket import Basket
+        return Basket(self.driver)
+
+
 class InvalidPageException(Exception):
     """ Throw this exception when you don't find the correct page """
     pass
