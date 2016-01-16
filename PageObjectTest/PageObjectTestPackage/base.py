@@ -10,7 +10,7 @@ class BasePage(object):
     def _validate_page(self, driver):
         return
 
-    """ Regions define functionality available throughall page objects """
+    """ Regions define functionality available through all page objects """
     @property
     def search(self):
         from search import SearchRegion
